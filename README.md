@@ -4,3 +4,9 @@
 
 <h1>Marriage</h1>
 <h3>Plugin for Counter Strike: Source v34: the ability to conduct marriage combinations on the server.</h3>
+
+<p>Commands: </p>
+    <ul>
+        <li>!brak - calling a menu with commands</li>
+        <li>!family - change the surname of the marriage</li>
+    </ul>
