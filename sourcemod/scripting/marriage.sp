@@ -317,7 +317,7 @@ void Open_MainMenu(int iClient)
 		static char szTime[128];
 
 		GetStringTime(GetTime() - Player[iClient].iTime, szTime, sizeof szTime);
-		FormatEx(szBuffer, sizeof szBuffer, "Ваш брак: \n \nВаша пара: %s \nВаши киллы: %i / %i [%i] \nТег в чате: %s \nВремя в браке: %s\n ", Player[iClient].szNick, Player[iClient].iKills, Player[iClient].iPairKills, Player[iClient].iKills + Player[iClient].iPairKills, Player[iClient].szTag[0] ? Player[iClient].szTag :" [отсутствует]", szTime);
+		FormatEx(szBuffer, sizeof szBuffer, "Marriage | Меню \n \nВаша пара: %s \nВаши киллы: %i / %i [%i] \nТег в чате: %s \nВремя в браке: %s\n ", Player[iClient].szNick, Player[iClient].iKills, Player[iClient].iPairKills, Player[iClient].iKills + Player[iClient].iPairKills, Player[iClient].szTag[0] ? Player[iClient].szTag :" [отсутствует]", szTime);
 	}
 	else
 	{
@@ -326,13 +326,13 @@ void Open_MainMenu(int iClient)
 
 	SetMenuTitle(hMenu, szBuffer);
 
-	AddMenuItem(hMenu, "", "Создать брак с игроком");
+	AddMenuItem(hMenu, "", "Создать брак");
 	AddMenuItem(hMenu, "", "Разорвать брак\n ");
-	AddMenuItem(hMenu, "", "ТОП по киллам");
+	AddMenuItem(hMenu, "", "Tоп-10 по киллам");
 
 	if(GetUserFlagBits(iClient) & ADMFLAG_ROOT)
 	{
-		AddMenuItem(hMenu, "", "ТОП по времени в браке\n ");
+		AddMenuItem(hMenu, "", "Tоп-10 по времени в браке\n ");
 		AddMenuItem(hMenu, "", "Развести пару");
 	}
 	else
@@ -675,7 +675,7 @@ void CallBack_TopKills(Database hDB, DBResultSet hResults, const char[] szError,
 		static char szBuffer[256], szNameFirst[64], szNameSecond[64];
 		Panel hPanel = new Panel();
 
-		SetPanelTitle(hPanel, "ТОП, по киллам\n ");
+		SetPanelTitle(hPanel, "Marriage | TOP-10 по киллам\n ");
 
 		int iPos = 1;
 		while(hResults.FetchRow())
@@ -718,7 +718,7 @@ void CallBack_TopTime(Database hDB, DBResultSet hResults, const char[] szError, 
 		static char szBuffer[256], szNameFirst[64], szNameSecond[64], szTime[128];
 		Handle hMenu = CreateMenu(CallBack_TopTimeMenu);
 
-		SetMenuTitle(hMenu, "ТОП по времени в браке\n ");
+		SetMenuTitle(hMenu, "Marriage | TOP-10 по времени в браке\n ");
 
 		int iTime = GetTime();
 
@@ -777,7 +777,7 @@ void CallBack_Admin(Database hDB, DBResultSet hResults, const char[] szError, in
 
 		Handle hMenu = CreateMenu(CallBack_AdminMenu);
 
-		SetMenuTitle(hMenu, "Развести пару\n ");
+		SetMenuTitle(hMenu, "Marriage | Развести пару\n ");
 
 		while(hResults.FetchRow())
 		{
