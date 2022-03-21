@@ -1,4 +1,3 @@
-[![Twitter Badge](https://img.shields.io/badge/version-1.5-green)](https://twitter.com/BraydonCoyer)
-[![LinkedIn Badge](https://img.shields.io/badge/LinkedIn-Profile-informational?style=flat&logo=linkedin&logoColor=white&color=0D76A8)](https://www.linkedin.com/in/braydon-coyer/)
-[![Twitter Badge](https://img.shields.io/badge/Twitter-Profile-informational?style=flat&logo=twitter&logoColor=white&color=1CA2F1)](https://twitter.com/BraydonCoyer)
-[![LinkedIn Badge](https://img.shields.io/badge/LinkedIn-Profile-informational?style=flat&logo=linkedin&logoColor=white&color=0D76A8)](https://www.linkedin.com/in/braydon-coyer/)
+![Version Badge](https://img.shields.io/badge/version-1.5-green)
+![SM Badge](https://img.shields.io/badge/SourceMod-1.11-green)
+[![VK Badge](https://img.shields.io/badge/VK-jquerry-green)](https://vk.com/jquerry)
