@@ -90,7 +90,7 @@ PlayerInfo Player[MAXPLAYERS + 1];
 
 public Plugin myinfo =
 {
-	name		= "Marriage [17.03.2022]",
+	name		= "Marriage [19.03.2022]",
 	author		= "phenom",
 	version		= "1.5",
 	url			= "https://hlmod.ru/"
