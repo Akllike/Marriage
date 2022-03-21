@@ -321,18 +321,18 @@ void Open_MainMenu(int iClient)
 	}
 	else
 	{
-		FormatEx(szBuffer, sizeof szBuffer, "Ваш брак:\n ");
+		FormatEx(szBuffer, sizeof szBuffer, "Marriage | Меню\n ");
 	}
 
 	SetMenuTitle(hMenu, szBuffer);
 
 	AddMenuItem(hMenu, "", "Создать брак");
 	AddMenuItem(hMenu, "", "Разорвать брак\n ");
-	AddMenuItem(hMenu, "", "Tоп-10 по киллам");
+	AddMenuItem(hMenu, "", "ТОП-10 по киллам");
 
 	if(GetUserFlagBits(iClient) & ADMFLAG_ROOT)
 	{
-		AddMenuItem(hMenu, "", "Tоп-10 по времени в браке\n ");
+		AddMenuItem(hMenu, "", "ТОП-10 по времени в браке\n ");
 		AddMenuItem(hMenu, "", "Развести пару");
 	}
 	else
