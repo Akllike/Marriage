@@ -90,9 +90,9 @@ PlayerInfo Player[MAXPLAYERS + 1];
 
 public Plugin myinfo =
 {
-	name		= "Marriage [19.03.2022]",
+	name		= "Marriage [03.04.2022]",
 	author		= "phenom",
-	version		= "1.5",
+	version		= "1.5.2",
 	url			= "https://hlmod.ru/"
 };
 
@@ -133,8 +133,8 @@ Action MPinfo(int iClient, int iArgs)
 		return;
 	}
 
-	char szQuery[512], Tag[32];
-	GetCmdArg(1, Tag, sizeof(Tag));
+	char szQuery[512], szTag[32];
+	GetCmdArg(1, szTag, sizeof(szTag));
 
 	if(!iArgs)
 	{
@@ -142,9 +142,9 @@ Action MPinfo(int iClient, int iArgs)
 		return;
 	}
 
-	FormatEx(szQuery, sizeof szQuery, "UPDATE `pair` SET `tag` = '%s'", Tag);
+	FormatEx(szQuery, sizeof szQuery, "UPDATE `pair` SET `tag` = '%s' WHERE `pair`.`second` = %i OR `pair`.`second` = %i", szTag, Player[iClient].iAccountID, Player[iClient].iAccountID);
 	g_hDatabase.Query(SQL_Callback_ErrorCheck, szQuery);
-	PrintToChat(iClient, "\x01[\x04Система\x01] \x04Вы успешно сменили тег на - \x03%s! \n\x04Изменения вступят в силу после смены карты.", Tag);
+	PrintToChat(iClient, "\x01[\x04Система\x01] \x04Вы успешно сменили тег на - \x03%s! \n\x04Изменения вступят в силу после смены карты.", szTag);
 }
 
 void LoadDatabase()
@@ -326,13 +326,13 @@ void Open_MainMenu(int iClient)
 
 	SetMenuTitle(hMenu, szBuffer);
 
-	AddMenuItem(hMenu, "", "Создать брак");
+	AddMenuItem(hMenu, "", "Создать брак с игроком");
 	AddMenuItem(hMenu, "", "Разорвать брак\n ");
-	AddMenuItem(hMenu, "", "ТОП-10 по киллам");
+	AddMenuItem(hMenu, "", "ТОП по киллам");
 
 	if(GetUserFlagBits(iClient) & ADMFLAG_ROOT)
 	{
-		AddMenuItem(hMenu, "", "ТОП-10 по времени в браке\n ");
+		AddMenuItem(hMenu, "", "ТОП по времени в браке\n ");
 		AddMenuItem(hMenu, "", "Развести пару");
 	}
 	else
@@ -482,7 +482,7 @@ void Open_PlayerListMenu(int iClient)
 	static char szBuffer[128], szId[8];
 	Handle hMenu = CreateMenu(CallBack_PlayerListMenu);
 
-	SetMenuTitle(hMenu, "Выберете себе пару:\n ");
+	SetMenuTitle(hMenu, "Marriage | Выберете себе пару:\n ");
 
 	for(int i = MaxClients + 1; --i;)
 	{
@@ -675,7 +675,7 @@ void CallBack_TopKills(Database hDB, DBResultSet hResults, const char[] szError,
 		static char szBuffer[256], szNameFirst[64], szNameSecond[64];
 		Panel hPanel = new Panel();
 
-		SetPanelTitle(hPanel, "Marriage | TOP-10 по киллам\n ");
+		SetPanelTitle(hPanel, "ТОП, по киллам\n ");
 
 		int iPos = 1;
 		while(hResults.FetchRow())
@@ -718,7 +718,7 @@ void CallBack_TopTime(Database hDB, DBResultSet hResults, const char[] szError, 
 		static char szBuffer[256], szNameFirst[64], szNameSecond[64], szTime[128];
 		Handle hMenu = CreateMenu(CallBack_TopTimeMenu);
 
-		SetMenuTitle(hMenu, "Marriage | TOP-10 по времени в браке\n ");
+		SetMenuTitle(hMenu, "Marriage | ТОП по времени в браке\n ");
 
 		int iTime = GetTime();
 
