@@ -142,7 +142,7 @@ Action MPinfo(int iClient, int iArgs)
 		return;
 	}
 
-	FormatEx(szQuery, sizeof szQuery, "UPDATE `pair` SET `tag` = '%s' WHERE `pair`.`second` = %i OR `pair`.`second` = %i", szTag, Player[iClient].iAccountID, Player[iClient].iAccountID);
+	FormatEx(szQuery, sizeof szQuery, "UPDATE `pair` SET `tag` = '%s' WHERE `pair`.`second` = %i OR `pair`.`first` = %i", szTag, Player[iClient].iAccountID, Player[iClient].iAccountID);
 	g_hDatabase.Query(SQL_Callback_ErrorCheck, szQuery);
 	PrintToChat(iClient, "\x01[\x04Система\x01] \x04Вы успешно сменили тег на - \x03%s! \n\x04Изменения вступят в силу после смены карты.", szTag);
 }
@@ -675,7 +675,7 @@ void CallBack_TopKills(Database hDB, DBResultSet hResults, const char[] szError,
 		static char szBuffer[256], szNameFirst[64], szNameSecond[64];
 		Panel hPanel = new Panel();
 
-		SetPanelTitle(hPanel, "ТОП, по киллам\n ");
+		SetPanelTitle(hPanel, "Marriage | ТОП по киллам\n ");
 
 		int iPos = 1;
 		while(hResults.FetchRow())
