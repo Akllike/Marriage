@@ -122,6 +122,7 @@ void Event_Death(Event event, const char[] name, bool dontBroadcast)
 	if(iClient > 0 && iClient != GetClientOfUserId(event.GetInt("userid")) && Player[iClient].bMarried)
 	{
 		Player[iClient].iKills++;
+		Player[iClient].Save(iClient);
 	}
 }
 
