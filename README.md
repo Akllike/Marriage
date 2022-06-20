@@ -4,7 +4,7 @@
 [![Version Badge](https://img.shields.io/badge/version-1.5.2-orange)](https://github.com/Akllike/Marriage/releases/tag/v1.5.2)
 [![SM Badge](https://img.shields.io/badge/SourceMod-1.11-orange)](https://www.sourcemod.net/)
 [![VK Badge](https://img.shields.io/badge/VK-jquerry-blue)](https://vk.com/jquerry)
-[![GitHub Streak](https://github-readme-streak-stats.herokuapp.com/?user=Akllike)](https://git.io/streak-stats)
+[![](https://komarev.com/ghpvc/?username=Akllike)]
 <p>Marriage - Plugin for Counter Strike: Source v34: the ability to conduct marriage combinations on the server.</p>
 
 <h1>Commands: </h1>
