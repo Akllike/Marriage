@@ -10,4 +10,6 @@
     <ul>
         <li>!brak - calling a menu with commands</li>
         <li>!family - change the surname of the marriage</li>
+
+        GET /repos/:user/:repo/downloads
     </ul>
